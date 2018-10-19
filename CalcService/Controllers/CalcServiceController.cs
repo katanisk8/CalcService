@@ -11,10 +11,25 @@ namespace CalcService.Controllers
     {
         ICalculator _calculator { get; set; }
 
-        public CalcServiceController(ICalculator calculator)
+        public CalcServiceController()
         {
-            _calculator = calculator;
+            //_calculator = calculator;
         }
+
+
+        [HttpPost("Test")]
+        public IActionResult Test(TestModel model)
+        {
+            var lol = new TestModel
+            {
+                Name = model.Name + " 2",
+                Ilosc = model.Ilosc + " 2"
+            };
+
+            return Ok(lol);
+        }
+
+
 
         // GET: api/CalcService
         [HttpGet]
@@ -25,7 +40,7 @@ namespace CalcService.Controllers
 
         // POST: api/CalcService
         [HttpPost]
-        public IActionResult Calculate([FromBody] CalcServiceRequest request)
+        public IActionResult Calculate(CalcServiceRequest request)
         {
             if (request == null)
             {
