@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace CalcService.Model
+﻿namespace CalcService.Core.Model
 {
     public class Flavor
     {
-        internal string Name { get; set; }
-        internal string NormalizedName { get; set; }
-        internal bool IsDefault { get; set; }
-        internal double Acid { get; set; }
+        public string Name { get; set; }
+        public string NormalizedName { get; set; }
+        public bool IsDefault { get; set; }
+        public double Acid { get; set; }
     }
 }

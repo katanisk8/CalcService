@@ -1,10 +1,10 @@
-﻿using CalcService.Model;
+﻿using CalcService.Core.Model;
 
-namespace CalcService.Core.Model
+namespace CalcService.Model
 {
-    internal class CalcServiceResponse
+    public class CalcServiceResponse
     {
-        internal Result Result { get; set; }
-        internal bool IsSuccess { get; set; }
+        public Result Result { get; set; }
+        public bool IsSuccess { get; set; }
     }
 }

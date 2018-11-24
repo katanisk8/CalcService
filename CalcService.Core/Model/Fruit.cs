@@ -1,12 +1,12 @@
-﻿namespace CalcService.Model
+﻿namespace CalcService.Core.Model
 {
-    internal class Fruit
+    public class Fruit
     {
-        internal string Name { get; set; }
-        internal string NormalizedName { get; set; }
-        internal bool IsDefault { get; set; }
-        internal double Sugar { get; set; }
-        internal double Acid { get; set; }
-        internal double Price { get; set; }
+        public string Name { get; set; }
+        public string NormalizedName { get; set; }
+        public bool IsDefault { get; set; }
+        public double Sugar { get; set; }
+        public double Acid { get; set; }
+        public double Price { get; set; }
     }
 }

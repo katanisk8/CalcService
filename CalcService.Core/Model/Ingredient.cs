@@ -1,8 +1,8 @@
-﻿namespace CalcService.Model
+﻿namespace CalcService.Core.Model
 {
     public class Ingredient
     {
-        internal Fruit Fruit { get; set; }
-        internal double Quantity { get; set; }
+        public Fruit Fruit { get; set; }
+        public double Quantity { get; set; }
     }
 }

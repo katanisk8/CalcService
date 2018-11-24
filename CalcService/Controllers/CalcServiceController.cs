@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using CalcService.Core.Model;
 using CalcService.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -11,59 +11,34 @@ namespace CalcService.Controllers
     {
         ICalculator _calculator { get; set; }
 
-        public CalcServiceController()
+        public CalcServiceController(ICalculator calculator)
         {
-            //_calculator = calculator;
-        }
-
-
-        [HttpPost("Test")]
-        public IActionResult Test(TestModel model)
-        {
-            var lol = new TestModel
-            {
-                Name = model.Name + " 2",
-                Ilosc = model.Ilosc + " 2"
-            };
-
-            return Ok(lol);
-        }
-
-
-
-        // GET: api/CalcService
-        [HttpGet]
-        public IEnumerable<string> Calculate()
-        {
-            return new string[] { "value1", "value2" };
+            _calculator = calculator;
         }
 
         // POST: api/CalcService
-        [HttpPost]
+        [HttpPost("Calculate")]
         public IActionResult Calculate(CalcServiceRequest request)
         {
-            if (request == null)
-            {
-                return BadRequest();
-            }
+            if (request == null) return BadRequest();
 
-            Result result = _calculator.Calculate(
-                request.Ingredients,
-                request.Flavor,
-                request.AlcoholQuantity,
-                request.JuiceCorretion,
-                request.Supplements
+            try
+            {
+                Result result = _calculator.Calculate(
+                    request.Ingredients,
+                    request.Flavor,
+                    request.AlcoholQuantity,
+                    request.JuiceCorretion,
+                    request.Supplements
                 );
 
-            CalcServiceResponse response = GetCalcServiceResponse(result);
+                CalcServiceResponse response = GetCalcServiceResponse(result);
 
-            if (response.IsSuccess)
-            {
-                return Ok(response);
+                return response.IsSuccess ? Ok(response) : (IActionResult)NotFound(response);
             }
-            else
+            catch (Exception ex)
             {
-                return NotFound(response);
+                return BadRequest(ex.Message);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using CalcService.Model;
+﻿using CalcService.Core.Model;
 using System.Collections.Generic;
 
 namespace CalcService

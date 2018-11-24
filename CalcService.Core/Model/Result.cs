@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CalcService.Model
+namespace CalcService.Core.Model
 {
     public class Result
     {

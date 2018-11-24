@@ -1,7 +1,7 @@
-﻿using CalcService.Model;
+﻿using CalcService.Core.Model;
 using System.Collections.Generic;
 
-namespace CalcService.Core.Model
+namespace CalcService.Model
 {
     public class CalcServiceRequest
     {
