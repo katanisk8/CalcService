@@ -47,11 +47,11 @@ namespace CalcService
             CheckIngredients(ingredients);
 
             Result result = new Result();
-            Supplement sugar = supplements.First(x => x.NormalizedName == "Sugar");
-            Supplement acid = supplements.First(x => x.NormalizedName == "Acid");
-            Supplement water = supplements.First(x => x.NormalizedName == "Water");
-            Supplement yeast = supplements.First(x => x.NormalizedName == "Yeast");
-            Supplement yeastFood = supplements.First(x => x.NormalizedName == "Yeast Food");
+            Supplement sugar = supplements.First(x => x.Type == SuplementType.Sugar);
+            Supplement acid = supplements.First(x => x.Type == SuplementType.Acid);
+            Supplement water = supplements.First(x => x.Type == SuplementType.Water);
+            Supplement yeast = supplements.First(x => x.Type == SuplementType.Yeast);
+            Supplement yeastFood = supplements.First(x => x.Type == SuplementType.YeastFood);
 
             double sugarSum = 0;
             double acidSum = 0;
